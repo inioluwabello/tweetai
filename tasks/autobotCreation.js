@@ -43,6 +43,7 @@ async function createAutobots() {
           // Create a comment for the post
           const newComment = await db.Comment.create({
             body: comment.body,
+            name: comment.name,
             email: comment.email,
             PostId: newPost.id
           });
@@ -61,6 +62,8 @@ async function createAutobots() {
     console.error('Error creating Autobots:', error);
   }
 }
+
+// createAutobots();
 
 // Schedule the task to run every hour
 schedule.scheduleJob('0 * * * *', () => {
